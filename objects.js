@@ -32,13 +32,16 @@ class kanyeQuote {
     }
     shoutingkanye() {
         var upperCase = this.kanyeQuote.toUpperCase();
-        $('#quoteContainer').append(upperCase);
+        $('#quoteContainer').append('<div>' + upperCase + '</div>');
     }
-    replace() {
+    replacingI() {
         var string = this.kanyeQuote.replace('I', 'Dumbass');
-        $('#quoteContainer').append(string);
+        $('#quoteContainer').append('<div>' + string + '/<div>');
     }
-
+    strike() {
+        var strike = this.kanyeQuote.strike()
+        $('#quoteContainer').append('<div>' + strike + '/<div>');
+    }
 }
 
 
@@ -51,7 +54,8 @@ $.ajax({
     function(resultJson) {
         var myKanyeQuote = new kanyeQuote(resultJson.quote);
         myKanyeQuote.shoutingkanye();
-        myKanyeQuote.replace();
+        myKanyeQuote.replacingI();
+        myKanyeQuote.strike();
     }).fail(
     function(xhr, status, error) {
         console.log("there was an error" + error);
